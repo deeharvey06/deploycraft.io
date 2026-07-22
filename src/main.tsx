@@ -10,11 +10,12 @@ import { Contact } from '@/pages/Contact';
 import './index.css';
 
 const queryClient = new QueryClient();
+const basename = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>
-      <BrowserRouter>
+      <BrowserRouter basename={basename}>
         <Routes>
           <Route element={<Layout />}>
             <Route path='/' element={<Home />} />
